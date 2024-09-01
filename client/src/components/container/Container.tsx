@@ -1,6 +1,8 @@
+import { Outlet } from "react-router-dom"
+
 import ContentBox from "../../hoc/ContentBox"
-import Footer from "./inner/Footer"
-import Header from "./inner/Header"
+import Footer from "./inner/footer/Footer"
+import Header from "./inner/header/Header"
 
 const Container = () => {
     return (
@@ -8,7 +10,7 @@ const Container = () => {
             <Header />
             <div className="flex-grow">
                 <ContentBox>
-                    <span className="text-xl">Now I can tell you about thos</span>
+                    <Outlet />
                 </ContentBox>
             </div>
             <Footer />
