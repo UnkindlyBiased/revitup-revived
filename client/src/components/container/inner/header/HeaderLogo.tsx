@@ -5,7 +5,7 @@ import header_logo from '../../../../assets/logos/revitup_header_logo.svg'
 const HeaderLogo = () => {
     return (
         <Link to={'/'}>
-            <img className='h-5 sm:h-7' src={header_logo} />
+            <img className='h-5 sm:h-7 transition-all' src={header_logo} />
         </Link>
     )
 }

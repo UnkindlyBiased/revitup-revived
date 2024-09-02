@@ -8,7 +8,17 @@
         url('assets/fonts/HelveticaNeueCyr-Roman.woff2') format('woff2'),
         url('assets/fonts/HelveticaNeueCyr-Roman.woff') format('woff'),
         url('assets/fonts/HelveticaNeueCyr-Roman.ttf') format('truetype');
-    font-weight: 400;
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: local('Helvetica Neue Bold'), local('Helvetica-Neue-Bold'),
+        url('HelveticaNeueCyr-Bold.woff2') format('woff2'),
+        url('HelveticaNeueCyr-Bold.woff') format('woff'),
+        url('HelveticaNeueCyr-Bold.ttf') format('truetype');
+    font-weight: bold;
     font-style: normal;
 }
 

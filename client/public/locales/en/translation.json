@@ -1,0 +1,15 @@
+{
+    "hello": "Hello to the RevItUp",
+    "authorization": {
+        "title": "Authorization",
+        "reg": "Registrate",
+        "login": "Log into account"
+    },
+    "sections": {
+        "title": "Sections"
+    },
+    "authorship": {
+        "created_by": "Created by",
+        "author": "Taras Blyzniuk"
+    }
+}

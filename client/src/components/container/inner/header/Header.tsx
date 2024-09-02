@@ -1,12 +1,17 @@
-import { FaGripLines } from "react-icons/fa"
-
+import HeaderDropdown from "./HeaderDropdown"
 import HeaderLogo from "./HeaderLogo"
+import HeaderSheet from "./HeaderSheet"
 
 const Header = () => {
     return (
-        <header className='bg-red-600 flex items-center px-5 sm:px-8 h-16 justify-between sticky top-0 z-50'>
+        <header className='bg-red-600 flex items-center px-5 sm:px-8 h-16 justify-between sticky top-0'>
             <HeaderLogo />
-            <FaGripLines className="sm:hidden" size={24} color='white' />
+            <div className="flex space-x-5">
+                <HeaderDropdown />
+                <div className="md:hidden">
+                    <HeaderSheet className="md:hidden" />
+                </div>
+            </div>
         </header>
     )
 }

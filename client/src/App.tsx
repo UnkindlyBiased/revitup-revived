@@ -1,18 +1,39 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 import Container from "./components/container/Container"
+import { ThemeProvider } from './providers/ThemeProvider'
+import LanguageProvider from './providers/LanguageProvider'
+import StartPage from './pages/StartPage'
+import AuthProvider from './providers/AuthProvider'
 
 const App = () => {
+	const queryClient = new QueryClient({
+		defaultOptions: {
+			queries: {
+				refetchOnWindowFocus: false
+			}
+		}
+	})
 	const router = createBrowserRouter([{
 		element: <Container />,
 		children: [
 			{
 				path: '/',
-				element: <span>Hello</span>
+				element: <StartPage />
 			}
 		]
 	}])
-	return <RouterProvider router={router} />
+
+	return (
+		<QueryClientProvider client={queryClient}>
+			<AuthProvider>
+				<ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
+					<RouterProvider router={router} />
+				</ThemeProvider>
+			</AuthProvider>
+		</QueryClientProvider>
+	)
 }
 
 export default App
