@@ -1,0 +1,15 @@
+{
+    "hello": "Привіт на RevItUp",
+    "authorization": {
+        "title": "Авторизація",
+        "reg": "Створити акаунт",
+        "login": "Увійти в акаунт"
+    },
+    "sections": {
+        "title": "Секції"
+    },
+    "authorship": {
+        "created_by": "Автор сайту",
+        "author": "Тарас Близнюк"
+    }
+}
