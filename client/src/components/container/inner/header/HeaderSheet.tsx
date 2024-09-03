@@ -14,7 +14,7 @@ const HeaderSheet = ({ className }: HeaderSheetProps) => {
             <SheetTrigger className={className}>
                 <FaGripLines className="bg-transparent" size={24} color='white' />
             </SheetTrigger>
-            <SheetContent>
+            <SheetContent aria-describedby={undefined}>
                 <SheetTitle>{t('sections.title')}</SheetTitle>
             </SheetContent>
         </Sheet>

@@ -30,11 +30,7 @@ async function start() {
         await AppDataSource.initialize()
         await AppDataSource.synchronize()
 
-        app.listen(PORT, () => {
-            console.log('smth else')
-
-            console.log(String(process.env.CLIENT_URL))
-        })
+        app.listen(PORT, () => console.log('API is started on port ' + PORT))
     } catch(e) {
         console.log(e)
     }
