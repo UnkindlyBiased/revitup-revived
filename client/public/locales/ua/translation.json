@@ -8,6 +8,31 @@
     "sections": {
         "title": "Секції"
     },
+    "pages": {
+        "login": {
+            "title": "Вхід у акаунт",
+            "sub_sentence": "Щоб бути авторизованим, знаєш...",
+            "email_placeholder": "Ел. пошта",
+            "pw_placeholder": "Пароль",
+            "button_title_normal": "Увійти",
+            "to_register": [
+                "Хочеш мати акаунт?",
+                "Тицяй сюди"
+            ],
+            "unauthorized": {
+                "title": "Неавторизовано",
+                "sub": "Спробуй увійти, друже..."
+            }
+        }
+    },
+    "common": {
+        "auth": {
+            "email_placeholder": "Ел. пошта",
+            "pw_placeholder": "Пароль",
+            "email_wrong_message": "Вказана пошта не відповідає нашим параметрам",
+            "pw_wrong_message": "Вказаний пароль не відповідає нашим параметрам"
+        }
+    },
     "authorship": {
         "created_by": "Автор сайту",
         "author": "Тарас Близнюк"

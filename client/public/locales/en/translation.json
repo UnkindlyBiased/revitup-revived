@@ -8,6 +8,27 @@
     "sections": {
         "title": "Sections"
     },
+    "pages": {
+        "login": {
+            "title": "Log into the account",
+            "sub_sentence": "To be authorized, you know...",
+            "button_title_normal": "Log in",
+            "to_register": [
+                "Do you want to have an account?",
+                "Click here"
+            ],
+            "unauthorized": {
+                "title": "Unauthorized",
+                "sub": "Try to log in, fella..."
+            }
+        }
+    },
+    "common": {
+        "auth": {
+            "email_placeholder": "Email address",
+            "pw_placeholder": "Password"
+        }
+    },
     "authorship": {
         "created_by": "Created by",
         "author": "Taras Blyzniuk"

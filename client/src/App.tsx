@@ -6,6 +6,7 @@ import { ThemeProvider } from './providers/ThemeProvider'
 import LanguageProvider from './providers/LanguageProvider'
 import StartPage from './pages/StartPage'
 import AuthProvider from './providers/AuthProvider'
+import LoginPage from './pages/auth/LoginPage'
 
 const App = () => {
 	const queryClient = new QueryClient({
@@ -21,6 +22,10 @@ const App = () => {
 			{
 				path: '/',
 				element: <StartPage />
+			},
+			{
+				path: '/login',
+				element: <LoginPage />
 			}
 		]
 	}])

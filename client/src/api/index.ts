@@ -1,4 +1,5 @@
 import axios from 'axios'
+
 import AuthService from '../services/AuthService'
 
 const api = axios.create({
@@ -15,7 +16,7 @@ api.interceptors.request.use(config => {
 
 api.interceptors.response.use((config) => config, async (err) => {
     const originalRequest = err.config
-    if (err.response?.status === 401 && err.config) {
+    if (err.config && err.response.status === 401) {
         try {
             const response = await AuthService.refresh()
             localStorage.setItem('accessToken', response.tokens.accessToken)

@@ -6,7 +6,7 @@ import Header from "./inner/header/Header"
 
 const Container = () => {
     return (
-        <div className="flex min-h-screen flex-col">
+        <div className="flex h-screen flex-col">
             <Header />
             <div className="flex-grow">
                 <ContentBox>
