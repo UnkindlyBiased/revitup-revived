@@ -1,31 +1,30 @@
 import { useMutation } from "@tanstack/react-query";
 import { useShallow } from "zustand/react/shallow";
 
-import AuthService from "../../services/AuthService";
-import useAuthStore from "../../stores/AuthStore";
-import { terminal } from "virtual:terminal";
+import AuthService from "../../services/auth.service";
+import useAuthStore from "../../stores/auth.store";
 
 const useLogin = () => {
     const {
-        setData,
+        setUser,
         setIsAuthed
     } = useAuthStore(useShallow(state => ({
-        setData: state.setData,
+        setUser: state.setUser,
         setIsAuthed: state.setIsAuthed
     })))
 
     return useMutation({
         mutationKey: ['login'],
         mutationFn: AuthService.login,
-        onSuccess: async (data) => {
+        onSuccess: (data) => {
+            console.log(data)
             setIsAuthed(true)
-            setData(data)
+            setUser(data.user)
 
             localStorage.setItem('accessToken', data.tokens.accessToken)
         },
-        onError: (error) => {
+        onError: () => {
             setIsAuthed(false)
-            terminal.log(error)
         }
     })
 }

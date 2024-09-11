@@ -1,9 +1,9 @@
 import { useTranslation } from "react-i18next"
 import { Link, useSearchParams } from "react-router-dom"
 
-import LoginForm from "../../components/pages/login-page/LoginForm"
+import LoginForm from "../../components/pages/login-page/login-form"
 import { stringToBoolean } from '../../../utils/funcs/HelperFunctions'
-import UnauthorizedSign from "../../components/pages/login-page/UnauthorizedSign"
+import UnauthorizedSign from "../../components/pages/login-page/unauthorized-sign"
 
 const Line = () => {
     return <div className="hidden md:block md:w-[1px] md:h-52 bg-red-500" />
@@ -28,7 +28,6 @@ const LoginPage = () => {
                     <span>{t('pages.login.sub_sentence')}</span>
                 </div>
                 <LoginForm />
-                <span>{String(process.env.API_URL)}</span>
                 <span className="text-center pt-2">
                     {first} <Link className="font-bold" to={'/register'}>{last}</Link>
                 </span>

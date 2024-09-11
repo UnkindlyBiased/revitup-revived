@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import AuthService from '../services/AuthService'
+import AuthService from '../services/auth.service'
 
 const api = axios.create({
     baseURL: String(process.env.API_URL),
@@ -16,6 +16,8 @@ api.interceptors.request.use(config => {
 
 api.interceptors.response.use((config) => config, async (err) => {
     const originalRequest = err.config
+    localStorage.setItem('errorStatus', err.response.status)
+    
     if (err.config && err.response.status === 401) {
         try {
             const response = await AuthService.refresh()

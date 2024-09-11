@@ -15,11 +15,11 @@ const HeaderDropdown = () => {
                 </div>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="mr-3">
-                <DropdownMenuLabel>{t('authorization.title')}</DropdownMenuLabel>
-                <DropdownMenuItem onClick={() => navigate('/register')}>
+                <DropdownMenuLabel className="font-bold">{t('authorization.title')}</DropdownMenuLabel>
+                <DropdownMenuItem className="font-medium" onClick={() => navigate('/register')}>
                     {t('authorization.reg')}
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => navigate('/login')}>
+                <DropdownMenuItem className="font-medium" onClick={() => navigate('/login')}>
                     {t('authorization.login')}
                 </DropdownMenuItem>
             </DropdownMenuContent>

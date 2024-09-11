@@ -20,7 +20,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Helvetica Neue', 'sans-serif']
+        sans: ['Manrope', 'sans-serif']
       },
       colors: {
         border: "hsl(var(--border))",

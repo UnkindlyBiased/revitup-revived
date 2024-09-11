@@ -1,6 +1,6 @@
-import HeaderDropdown from "./HeaderDropdown"
-import HeaderLogo from "./HeaderLogo"
-import HeaderSheet from "./HeaderSheet"
+import HeaderDropdown from "./header-dropdown"
+import HeaderLogo from "./header-logo"
+import HeaderSheet from "./header-sheet"
 
 const Header = () => {
     return (

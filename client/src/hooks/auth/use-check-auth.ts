@@ -1,16 +1,16 @@
 import { useMutation } from '@tanstack/react-query'
 import { useShallow } from 'zustand/react/shallow'
 
-import AuthService from '../../services/AuthService'
-import useAuthStore from '../../stores/AuthStore'
+import AuthService from '../../services/auth.service'
+import useAuthStore from '../../stores/auth.store'
 
 const useCheckAuth = () => {
     const {
-        setData,
+        setUser,
         setIsAuthed,
         setIsLoading
     } = useAuthStore(useShallow(state => ({
-        setData: state.setData,
+        setUser: state.setUser,
         setIsAuthed: state.setIsAuthed,
         setIsLoading: state.setIsLoading,
     })))
@@ -23,12 +23,11 @@ const useCheckAuth = () => {
         },
         onSuccess: (data) => {
             setIsAuthed(true)
-            setData(data)
+            setUser(data.user)
             
             localStorage.setItem('accessToken', data.tokens.accessToken)
         },
         onError: () => {
-            setData(null)
             setIsAuthed(false)
         },
         onSettled: () => {

@@ -15,7 +15,7 @@ const app = express()
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-    origin: [String(process.env.CLIENT_URL), 'http://192.168.29.141:5704'],
+    origin: String(process.env.CLIENT_URL),
     credentials: true
 }))
 
