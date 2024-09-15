@@ -1,5 +1,5 @@
 type AuthLogin = {
-    username: string
+    emailAddress: string
     password: string
 }
 

@@ -1,11 +1,14 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
-import Container from "./components/container/Container"
-import { ThemeProvider } from './providers/ThemeProvider'
-import LanguageProvider from './providers/LanguageProvider'
-import StartPage from './pages/StartPage'
-import AuthProvider from './providers/AuthProvider'
+import Container from "./components/container/container"
+import { ThemeProvider } from './providers/theme.provider'
+import LanguageProvider from './providers/language.provider'
+import StartPage from './pages/start.page'
+import AuthProvider from './providers/auth.provider'
+import LoginPage from './pages/auth/login.page'
+import RegistratePage from './pages/auth/registrate.page'
+import PrivatePage from './pages/private.page'
 
 const App = () => {
 	const queryClient = new QueryClient({
@@ -21,6 +24,18 @@ const App = () => {
 			{
 				path: '/',
 				element: <StartPage />
+			},
+			{
+				path: '/login',
+				element: <LoginPage />
+			},
+			{
+				path: '/registrate',
+				element: <RegistratePage />
+			},
+			{
+				path: '/private',
+				element: <PrivatePage />
 			}
 		]
 	}])

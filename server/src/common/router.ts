@@ -7,3 +7,5 @@ export const MainRouter = Router()
 
 MainRouter.use('/users', UserRouter)
 MainRouter.use('/auth', AuthRouter)
+
+MainRouter.get('/', (req, res) => { return res.send('hello') })

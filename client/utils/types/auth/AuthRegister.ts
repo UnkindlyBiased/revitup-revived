@@ -1,5 +1,5 @@
 import AuthLogin from "./AuthLogin";
 
-type AuthRegister = AuthLogin & { emailAddress: string }
+type AuthRegister = AuthLogin & { username: string }
 
 export default AuthRegister

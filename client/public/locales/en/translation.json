@@ -1,12 +1,94 @@
 {
     "hello": "Hello to the RevItUp",
-    "authorization": {
-        "title": "Authorization",
-        "reg": "Registrate",
-        "login": "Log into account"
+    "dropdown": {
+        "unauthed_actions": {
+            "title": "Authorization",
+            "reg": "Registrate",
+            "login": "Log into account"
+        },
+        "authed_actions": {
+            "logout": {
+                "title": "Log out",
+                "success_toast": {
+                    "title": "You've logged out of your account",
+                    "description": "Looks like you wanna be anonymous a bit..."
+                }
+            }
+        }
     },
     "sections": {
         "title": "Sections"
+    },
+    "pages": {
+        "login": {
+            "title": "Log into the account",
+            "sub_sentence": "To be authorized, you know...",
+            "button_title_normal": "Log in",
+            "to_regisrate": [
+                "Do you want to have an account?",
+                "Click here"
+            ],
+            "unauthorized": {
+                "title": "Unauthorized",
+                "sub": "Try to log in, fella..."
+            },
+            "success_toast": {
+                "title": "Login was successfull",
+                "description": "Now you can fully use our app"
+            }
+        },
+        "registrate": {
+            "title": "Registration",
+            "sub_sentence": "To have your own account, you know...",
+            "button": "Registrate",
+            "fields": {
+                "username": {
+                    "placeholder": "Username",
+                    "wrong": "Username must be between 3 and 75 characters long"
+                },
+                "repeat_password": {
+                    "placeholder": "Repeat the password",
+                    "wrong": "Passwords don't match"
+                }
+            },
+            "to_login": [
+                "Already having an account?",
+                "Go over here"
+            ],
+            "success_toast": {
+                "title": "Congratulations! Registration was successful",
+                "description": "Now you can log into your account"
+            }
+        }
+    },
+    "common": {
+        "auth": {
+            "fields": {
+                "email": {
+                    "placeholder": "Email address",
+                    "wrong": "This string can not be an email address"
+                },
+                "password": {
+                    "placeholder": "Password",
+                    "wrong": "Password should be between 6 to 32 characters long, including at least one nuber and one special symbol (!@#$%^&*_)"
+                }
+            }
+        },
+        "errors": {
+            "403_auth": {
+                "title": "Forbidden",
+                "description": "Password doesn't match the correct one"
+            },
+            "404_auth": {
+                "title": "Not found",
+                "description": "User with this data doesn't exist"
+            },
+            "409_auth": {
+                "title": "Data conflict",
+                "description": "User with this data already exists"
+            }
+        },
+        "wait_span": "Please wait"
     },
     "authorship": {
         "created_by": "Created by",

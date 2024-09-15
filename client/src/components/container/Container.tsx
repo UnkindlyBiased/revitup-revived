@@ -1,18 +1,20 @@
 import { Outlet } from "react-router-dom"
+import { Toaster } from "../ui/toaster"
 
-import ContentBox from "../../hoc/ContentBox"
-import Footer from "./inner/footer/Footer"
-import Header from "./inner/header/Header"
+import ContentBox from "../../hoc/content-box"
+import Footer from "./inner/footer/footer"
+import Header from "./inner/header/header"
 
 const Container = () => {
     return (
-        <div className="flex min-h-screen flex-col">
+        <div className="flex h-screen flex-col">
             <Header />
-            <div className="flex-grow">
+            <main className="flex-grow">
                 <ContentBox>
                     <Outlet />
+                    <Toaster />
                 </ContentBox>
-            </div>
+            </main>
             <Footer />
         </div>
     )

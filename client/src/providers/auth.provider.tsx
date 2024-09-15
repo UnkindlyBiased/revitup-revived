@@ -1,8 +1,8 @@
 import { useEffect } from "react"
 import { useShallow } from "zustand/react/shallow"
 
-import useCheckAuth from "../hooks/auth/useRefresh"
-import useAuthStore from "../stores/AuthStore"
+import useCheckAuth from "../hooks/auth/use-check-auth"
+import useAuthStore from "../stores/auth.store"
 
 const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     const { mutateAsync: checkAuth } = useCheckAuth()
@@ -17,14 +17,18 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     })))
 
     useEffect(() => {
-        setIsLoading(true)
-        if (localStorage.getItem('accessToken')) {
-            checkAuth()
+        const func = async () => {
+            setIsLoading(true)
+            if (localStorage.getItem('accessToken')) {
+                await checkAuth()
+            }
+
+            setIsFinishedLoading(true)
+            setIsCheckingAuthFinished(true)
+            setIsLoading(false)
         }
 
-        setIsFinishedLoading(true)
-        setIsCheckingAuthFinished(true)
-        setIsLoading(false)
+        func()
     }, [checkAuth, setIsLoading, setIsFinishedLoading, setIsCheckingAuthFinished])
 
     return children
