@@ -17,7 +17,6 @@ const useLogin = () => {
         mutationKey: ['login'],
         mutationFn: AuthService.login,
         onSuccess: (data) => {
-            console.log(data)
             setIsAuthed(true)
             setUser(data.user)
 

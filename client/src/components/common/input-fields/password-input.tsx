@@ -19,6 +19,7 @@ const PasswordInput = forwardRef<HTMLInputElement, InputProps>(
 
         return (
             <Input
+                id="password"
                 className={className}
                 type={open ? "text" : "password"}
                 ref={ref}

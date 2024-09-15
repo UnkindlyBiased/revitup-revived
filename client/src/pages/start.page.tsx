@@ -1,8 +1,7 @@
 import { useTranslation } from "react-i18next"
+import { useShallow } from "zustand/react/shallow"
 
 import useAuthStore from "../stores/auth.store"
-import RequireAuth from "../hoc/require-auth"
-import { useShallow } from "zustand/react/shallow"
 
 const StartPage = () => {
     const { i18n, t } = useTranslation()
@@ -22,13 +21,11 @@ const StartPage = () => {
 	}
 
     return (
-        <RequireAuth>
-            <div className="flex flex-col">
-                <span>{t('hello')}</span>
-                <button className="size-fit" onClick={changeLanguage}>Change</button>
-                { (isAuthed && isCheckingAuthFinished) && <span>Користувач: {user?.username || 'відсутній'}</span> }
-            </div>
-        </RequireAuth>
+        <div className="flex flex-col">
+            <span>{t('hello')}</span>
+            <button className="size-fit" onClick={changeLanguage}>Change</button>
+            { (isAuthed && isCheckingAuthFinished) && <span>Користувач: {user?.username || 'відсутній'}</span> }
+        </div>
     )
 }
 

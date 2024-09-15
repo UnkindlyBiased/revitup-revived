@@ -23,11 +23,11 @@ const RequireAuth = ({ children }: { children: React.ReactNode }) => {
         if (!isAuthed && isFinishedLoading && isCheckingAuthFinished) {
           navigate('/login?unauth=true');
         }
-      }, [isAuthed, navigate, isFinishedLoading, isCheckingAuthFinished]);
+    }, [isAuthed, navigate, isFinishedLoading, isCheckingAuthFinished]);
     
-      if (isLoading || !isCheckingAuthFinished) return <Loading />;
+    if (isLoading || !isCheckingAuthFinished) return <Loading />;
     
-      return isAuthed ? children : null;
+    return isAuthed ? children : null;
 }
 
 export default RequireAuth

@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next'
+
 import sign from '../../../assets/logos/unauthorized_hazard_sign.svg'
 
 const UnauthorizedSign = () => {

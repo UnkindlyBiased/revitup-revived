@@ -4,7 +4,7 @@ import HeaderSheet from "./header-sheet"
 
 const Header = () => {
     return (
-        <header className='bg-red-600 flex items-center px-5 sm:px-8 h-16 justify-between sticky top-0'>
+        <header className='bg-red-600 flex items-center px-5 sm:px-8 min-h-16 justify-between sticky top-0'>
             <div className="flex space-y-5">
                 <HeaderLogo />
                 <div className='hidden md:flex'></div>

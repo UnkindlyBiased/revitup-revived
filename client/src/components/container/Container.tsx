@@ -2,8 +2,8 @@ import { Outlet } from "react-router-dom"
 import { Toaster } from "../ui/toaster"
 
 import ContentBox from "../../hoc/content-box"
-import Footer from "./inner/footer/Footer"
-import Header from "./inner/header/Header"
+import Footer from "./inner/footer/footer"
+import Header from "./inner/header/header"
 
 const Container = () => {
     return (
