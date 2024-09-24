@@ -1,6 +1,7 @@
 import axios from 'axios'
 
-import AuthService from '../services/auth.service'
+import AuthResponse from '../../utils/types/auth/AuthResponse'
+import useAuthStore from '../stores/auth.store'
 
 const api = axios.create({
     baseURL: String(process.env.API_URL),
@@ -8,26 +9,34 @@ const api = axios.create({
 })
 
 api.interceptors.request.use(config => {
-    const accessToken = localStorage.getItem('accessToken')
-    config.headers.Authorization = `Bearer ${accessToken}`
+    const accessToken = useAuthStore.getState().accessToken
+
+    if (accessToken) {
+        config.headers.Authorization = `Bearer ${accessToken}`
+    }
 
     return config
 })
 
-api.interceptors.response.use((config) => config, async (err) => {
+api.interceptors.response.use((response) => response, async (err) => {
     const originalRequest = err.config
-    localStorage.setItem('errorStatus', err.response.status)
+    const setAccessToken = useAuthStore.getState().setAccessToken
     
-    if (err.config && err.response.status === 401) {
+    if (originalRequest && err.response.status === 403) {
         try {
-            const response = await AuthService.refresh()
-            localStorage.setItem('accessToken', response.tokens.accessToken)
+            const accessToken = await axios.post<AuthResponse>(String(process.env.API_URL), {}, {
+                withCredentials: true
+            }).then(data => data.data.tokens.accessToken)
+
+            setAccessToken(accessToken)
 
             return api.request(originalRequest)
         } catch (e) {
-            console.log(e)
+            console.error("Error refreshing tokens", e)
         }
     }
+
+    throw err
 })
 
 export default api

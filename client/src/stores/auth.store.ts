@@ -4,6 +4,7 @@ import UserAuthResponse from '../../utils/types/user/UserAuthResponse'
 
 type AuthState = {
     user: UserAuthResponse | null
+    accessToken: string | null
 
     isLoading: boolean
     isAuthed: boolean
@@ -11,6 +12,7 @@ type AuthState = {
     isCheckingAuthFinished: boolean
 
     setUser: (data: UserAuthResponse | null) => void
+    setAccessToken: (token: string | null) => void
     setIsLoading: (value: boolean) => void
     setIsAuthed: (value: boolean) => void
     setIsFinishedLoading: (value: boolean) => void
@@ -19,6 +21,7 @@ type AuthState = {
 
 const useAuthStore = create<AuthState>(set => ({
     user: null,
+    accessToken: null,
 
     isLoading: false,
     isAuthed: false,
@@ -27,6 +30,9 @@ const useAuthStore = create<AuthState>(set => ({
 
     setUser: user => {
         set({ user })
+    },
+    setAccessToken: accessToken => {
+        set({ accessToken })
     },
     setIsLoading: isLoading => {
         set({ isLoading })

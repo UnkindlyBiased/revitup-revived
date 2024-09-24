@@ -38,7 +38,8 @@ const LoginForm = () => {
 
             successToast({ ...toastTrans })
             navigate('/')
-        } catch {
+        } catch (e) {
+            console.log(e)
             errorToast()
         }
     }

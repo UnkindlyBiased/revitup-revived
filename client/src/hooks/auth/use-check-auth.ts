@@ -8,11 +8,13 @@ const useCheckAuth = () => {
     const {
         setUser,
         setIsAuthed,
-        setIsLoading
+        setIsLoading,
+        setAccessToken
     } = useAuthStore(useShallow(state => ({
         setUser: state.setUser,
         setIsAuthed: state.setIsAuthed,
         setIsLoading: state.setIsLoading,
+        setAccessToken: state.setAccessToken,
     })))
 
     return useMutation({
@@ -25,7 +27,7 @@ const useCheckAuth = () => {
             setIsAuthed(true)
             setUser(data.user)
             
-            localStorage.setItem('accessToken', data.tokens.accessToken)
+            setAccessToken(data.tokens.accessToken)
         },
         onError: () => {
             setIsAuthed(false)

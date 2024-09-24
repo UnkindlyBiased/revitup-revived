@@ -23,8 +23,8 @@
         "login": {
             "title": "Log into the account",
             "sub_sentence": "To be authorized, you know...",
-            "button_title_normal": "Log in",
-            "to_regisrate": [
+            "button": "Log in",
+            "to_registrate": [
                 "Do you want to have an account?",
                 "Click here"
             ],

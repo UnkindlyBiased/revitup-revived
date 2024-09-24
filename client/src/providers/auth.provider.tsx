@@ -19,9 +19,8 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     useEffect(() => {
         const func = async () => {
             setIsLoading(true)
-            if (localStorage.getItem('accessToken')) {
-                await checkAuth()
-            }
+
+            await checkAuth()
 
             setIsFinishedLoading(true)
             setIsCheckingAuthFinished(true)
