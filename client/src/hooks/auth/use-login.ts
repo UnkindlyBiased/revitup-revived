@@ -3,14 +3,17 @@ import { useShallow } from "zustand/react/shallow";
 
 import AuthService from "../../services/auth.service";
 import useAuthStore from "../../stores/auth.store";
+import { REFRESH_TOKEN_VALID } from "../../../utils/constants/localstorage.constants";
 
 const useLogin = () => {
     const {
         setUser,
-        setIsAuthed
+        setIsAuthed,
+        setAccessToken
     } = useAuthStore(useShallow(state => ({
         setUser: state.setUser,
-        setIsAuthed: state.setIsAuthed
+        setIsAuthed: state.setIsAuthed,
+        setAccessToken: state.setAccessToken
     })))
 
     return useMutation({
@@ -20,7 +23,8 @@ const useLogin = () => {
             setIsAuthed(true)
             setUser(data.user)
 
-            localStorage.setItem('accessToken', data.tokens.accessToken)
+            setAccessToken(data.tokens.accessToken)
+            localStorage.setItem(REFRESH_TOKEN_VALID, 'true')
         },
         onError: () => {
             setIsAuthed(false)

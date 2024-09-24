@@ -1,6 +1,8 @@
 import axios from 'axios'
 
-import AuthService from '../services/auth.service'
+import AuthResponse from '../../utils/types/auth/AuthResponse'
+import useAuthStore from '../stores/auth.store'
+import { REFRESH_TOKEN_VALID } from '../../utils/constants/localstorage.constants'
 
 const api = axios.create({
     baseURL: String(process.env.API_URL),
@@ -8,26 +10,38 @@ const api = axios.create({
 })
 
 api.interceptors.request.use(config => {
-    const accessToken = localStorage.getItem('accessToken')
-    config.headers.Authorization = `Bearer ${accessToken}`
+    const accessToken = useAuthStore.getState().accessToken
+
+    if (accessToken) {
+        config.headers.Authorization = `Bearer ${accessToken}`
+    }
 
     return config
 })
 
-api.interceptors.response.use((config) => config, async (err) => {
+api.interceptors.response.use((response) => response, async (err) => {
     const originalRequest = err.config
-    localStorage.setItem('errorStatus', err.response.status)
+    const setAccessToken = useAuthStore.getState().setAccessToken
     
-    if (err.config && err.response.status === 401) {
+    if (originalRequest && err.response.status === 401) {
         try {
-            const response = await AuthService.refresh()
-            localStorage.setItem('accessToken', response.tokens.accessToken)
+            const { tokens: { accessToken } } = await axios.post<AuthResponse>(
+                String(process.env.API_URL), null, {
+                withCredentials: true
+            }).then(data => data.data)
+
+            setAccessToken(accessToken)
 
             return api.request(originalRequest)
         } catch (e) {
-            console.log(e)
+            console.error("Error refreshing tokens", e)
+
+            localStorage.removeItem(REFRESH_TOKEN_VALID)
+            return Promise.reject(e)
         }
     }
+
+    throw err
 })
 
 export default api

@@ -3,6 +3,7 @@ import { useShallow } from "zustand/react/shallow"
 
 import useCheckAuth from "../hooks/auth/use-check-auth"
 import useAuthStore from "../stores/auth.store"
+import { REFRESH_TOKEN_VALID } from "../../utils/constants/localstorage.constants"
 
 const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     const { mutateAsync: checkAuth } = useCheckAuth()
@@ -19,7 +20,8 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     useEffect(() => {
         const func = async () => {
             setIsLoading(true)
-            if (localStorage.getItem('accessToken')) {
+
+            if (localStorage.getItem(REFRESH_TOKEN_VALID)) {
                 await checkAuth()
             }
 

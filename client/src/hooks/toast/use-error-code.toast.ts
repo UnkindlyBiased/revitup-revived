@@ -7,9 +7,8 @@ const useErrorCodeToast = () => {
     const { toast } = useToast()
     const { t } = useTranslation()
 
-    return () => {
-        const errorStatus = localStorage.getItem('errorStatus')
-        const transObj = t(`common.errors.${errorStatus}_auth`, { returnObjects: true }) as TToastMessage
+    return (status?: number) => {
+        const transObj = t(`common.errors.${status}_auth`, { returnObjects: true }) as TToastMessage
 
         toast({
             ...transObj,

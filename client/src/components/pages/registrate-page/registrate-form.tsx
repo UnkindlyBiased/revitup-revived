@@ -7,10 +7,11 @@ import { useNavigate } from "react-router-dom"
 import { Label } from "../../ui/label"
 import { Button } from "../../ui/button"
 import { useToast } from "../../../hooks/use-toast"
+import { AxiosError } from "axios"
 
 import AuthRegister from "../../../../utils/types/auth/AuthRegister"
 import useRegistrate from "../../../hooks/auth/use-registrate"
-import { EMAIL_VALIDATION_PATTERN, PASSWORD_VALIDATION_PATTERN } from "../../../../utils/constants/proj-constants"
+import { EMAIL_VALIDATION_PATTERN, PASSWORD_VALIDATION_PATTERN } from "../../../../utils/constants/project.constants"
 import PasswordInput from "../../common/input-fields/password-input"
 import useErrorCodeToast from "../../../hooks/toast/use-error-code.toast"
 import TToastMessage from "../../../../utils/types/misc/TToastMessage"
@@ -45,8 +46,8 @@ const RegistrateForm = () => {
 
             successToast({ ...toastTrans })
             navigate('/login')
-        } catch {
-            errorToast()
+        } catch(e) {
+            errorToast((e as AxiosError).response?.status)
         }
     }
 
