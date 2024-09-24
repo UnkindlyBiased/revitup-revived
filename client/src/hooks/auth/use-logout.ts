@@ -3,6 +3,7 @@ import { useMutation } from "@tanstack/react-query"
 
 import useAuthStore from "../../stores/auth.store"
 import AuthService from "../../services/auth.service"
+import { REFRESH_TOKEN_VALID } from "../../../utils/constants/localstorage.constants"
 
 const useLogout = () => {
     const {
@@ -23,6 +24,7 @@ const useLogout = () => {
             setIsAuthed(false)
 
             setAccessToken(null)
+            localStorage.removeItem(REFRESH_TOKEN_VALID)
         }
     })
 }

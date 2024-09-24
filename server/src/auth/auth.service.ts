@@ -7,7 +7,6 @@ import { UserPayloadDto } from "./dto/user.payload.dto";
 import { TokenHelper } from "../../utils/helper/token.helper";
 import { UserTokenPayloadDto } from "./dto/user.token-payload.dto";
 import { UserLoginDto } from "./dto/user.login.dto";
-import { UserEntity } from "../user/user.entity";
 import { AuthHelper as auth } from "./auth.helper";
 
 export class AuthService {
@@ -45,7 +44,7 @@ export class AuthService {
     async refresh(refreshToken: string): Promise<UserTokenPayloadDto> {
         const payload = TokenHelper.verifyRefreshToken(refreshToken)
         if (!payload) {
-            throw ApiError.Forbidden('User is not authorized')
+            throw ApiError.Unauthorized('User is not authorized')
         }
 
         const user = await this.userRespository.getUserByCondition({ emailAddress: payload.emailAddress })

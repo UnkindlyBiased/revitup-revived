@@ -6,13 +6,14 @@ import { useForm, SubmitHandler } from 'react-hook-form'
 import { useNavigate } from "react-router-dom"
 import { Loader2 } from "lucide-react"
 import { useToast } from "../../../hooks/use-toast"
+import { AxiosError } from "axios"
 
 import AuthLogin from "../../../../utils/types/auth/AuthLogin"
 import useLogin from "../../../hooks/auth/use-login"
 import {
     EMAIL_VALIDATION_PATTERN,
     PASSWORD_VALIDATION_PATTERN
-} from "../../../../utils/constants/proj-constants"
+} from "../../../../utils/constants/project.constants"
 import PasswordInput from "../../common/input-fields/password-input"
 import useErrorCodeToast from "../../../hooks/toast/use-error-code.toast"
 import TToastMessage from "../../../../utils/types/misc/TToastMessage"
@@ -39,8 +40,7 @@ const LoginForm = () => {
             successToast({ ...toastTrans })
             navigate('/')
         } catch (e) {
-            console.log(e)
-            errorToast()
+            errorToast((e as AxiosError).response?.status)
         }
     }
 
