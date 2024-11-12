@@ -9,6 +9,7 @@ import AuthProvider from './providers/auth.provider'
 import LoginPage from './pages/auth/login.page'
 import RegistratePage from './pages/auth/registrate.page'
 import PrivatePage from './pages/private.page'
+import { ArticleDetailedPage } from './pages/article/article-detailed.page'
 
 const App = () => {
 	const queryClient = new QueryClient({
@@ -36,6 +37,10 @@ const App = () => {
 			{
 				path: '/private',
 				element: <PrivatePage />
+			},
+			{
+				path: '/article',
+				element: <ArticleDetailedPage />
 			}
 		]
 	}])

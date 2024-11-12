@@ -16,7 +16,7 @@ class AuthService {
         await api.post(this.ROUTE_PREFIX + '/logout')
     }
     static refresh = async (): Promise<AuthResponse> => {
-       return (await api.get<AuthResponse>(this.ROUTE_PREFIX + '/refresh')).data
+        return (await api.get<AuthResponse>(this.ROUTE_PREFIX + '/refresh')).data
     }
 }
 
