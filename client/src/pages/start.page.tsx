@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next"
 import { useShallow } from "zustand/react/shallow"
+import { Helmet } from "react-helmet-async"
 
 import useAuthStore from "../stores/auth.store"
 
@@ -22,6 +23,10 @@ const StartPage = () => {
 
     return (
         <div className="flex flex-col">
+            <Helmet>
+                <title>REVITUP: Main page</title>
+                <meta name="description" content="Everything about motorsport worldwide" />
+            </Helmet>
             <span>{t('hello')}</span>
             <button className="size-fit" onClick={changeLanguage}>Change</button>
             { (isAuthed && isCheckingAuthFinished) && <span>Користувач: {user?.username || 'відсутній'}</span> }

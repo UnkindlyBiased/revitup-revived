@@ -2,10 +2,10 @@ import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 import { UserRoles } from "../../utils/enum/user-roles.enum";
 
-@Entity('users')
+@Entity('Users')
 export class UserEntity {
-    @PrimaryGeneratedColumn()
-    id: number
+    @PrimaryGeneratedColumn('uuid')
+    id: string
 
     @Column({ length: 75 })
     username: string
@@ -14,15 +14,22 @@ export class UserEntity {
     password: string
 
     @Column({
-        name: 'email_address',
-        nullable: true
+        name: 'email_address'
     })
     emailAddress: string
 
     @Column({
         type: 'enum',
+        array: true,
         enum: UserRoles,
-        default: UserRoles.DEFAULT
+        name: 'user_roles',
+        default: [UserRoles.DEFAULT]
     })
-    role: UserRoles
+    roles: UserRoles[]
+
+    @Column({
+        name: 'user_number',
+        generated: 'increment'
+    })
+    number: number
 }

@@ -5,7 +5,7 @@ import { UserService } from "./user.service";
 class UserController {
     private service: UserService = new UserService();
 
-    getUsers = async (req: Request, res: Response, next: NextFunction) => {
+    getUsers = async (_: Request, res: Response, next: NextFunction) => {
         try {
             const users = await this.service.getUsers()
 
