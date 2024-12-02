@@ -7,6 +7,7 @@ import { config } from 'dotenv'
 import { MainRouter } from './src/common/router'
 import { AppDataSource } from './utils/data/app.data-source'
 import { errorMiddleware } from './utils/middleware/error.middleware'
+import CacheClient from './utils/data/cache-client'
 
 config()
 
@@ -21,7 +22,7 @@ app.use(cors({
 
 app.use(MainRouter)
 
-app.use(errorMiddleware)
+app.use(() => errorMiddleware)
 
 async function start() {
     try {
@@ -29,6 +30,8 @@ async function start() {
 
         await AppDataSource.initialize()
         await AppDataSource.synchronize()
+
+        await CacheClient.getInstance().connect()
 
         app.listen(PORT, () => console.log('API is started on port ' + PORT))
     } catch(e) {
