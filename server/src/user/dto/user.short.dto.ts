@@ -2,16 +2,13 @@ import { Expose } from "class-transformer";
 
 import { UserRoles } from "../../../utils/enum/user-roles.enum";
 
-export class UserPayloadDto {
+export class UserShortDto {
     @Expose()
-    id: string
+    id: number;
+    
+    @Expose()
+    username: string;
 
     @Expose()
-    username: string
-
-    @Expose()
-    emailAddress: string
-
-    @Expose()
-    roles: UserRoles[]
-}
+    roles: UserRoles;
+};

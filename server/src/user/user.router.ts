@@ -7,4 +7,6 @@ import { UserRoles } from "../../utils/enum/user-roles.enum";
 
 export const UserRouter = Router()
 
-UserRouter.get('/', authMiddleware, roleMiddleware(UserRoles.ADMIN), UserController.getUsers)
+UserRouter.get('/', authMiddleware, roleMiddleware(
+    UserRoles.ADMIN, UserRoles.CREATOR
+), UserController.getUsers)

@@ -1,4 +1,6 @@
 export enum UserRoles {
     DEFAULT = 'default',
-    ADMIN = 'admin'
+    EDITOR = 'editor',
+    ADMIN = 'admin',
+    CREATOR = 'creator',
 }
