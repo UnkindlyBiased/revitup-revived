@@ -1,64 +1,37 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { HelmetProvider } from 'react-helmet-async'
+import { RouterProvider } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { HelmetProvider } from "react-helmet-async";
 
-import Container from "./components/container/container"
-import { ThemeProvider } from './providers/theme.provider'
-import LanguageProvider from './providers/language.provider'
-import StartPage from './pages/start.page'
-import AuthProvider from './providers/auth.provider'
-import LoginPage from './pages/auth/login.page'
-import RegistratePage from './pages/auth/registrate.page'
-import PrivatePage from './pages/private.page'
-import { ArticleDetailedPage } from './pages/article/article-detailed.page'
+import { ThemeProvider } from "./providers/theme.provider";
+import LanguageProvider from "./providers/language.provider";
+import AuthProvider from "./providers/auth.provider";
+import { appRouter } from './navigation';
 
 const App = () => {
-	const queryClient = new QueryClient({
-		defaultOptions: {
-			queries: {
-				refetchOnWindowFocus: false
-			}
-		}
-	})
-	const router = createBrowserRouter([{
-		element: <Container />,
-		children: [
-			{
-				path: '/',
-				element: <StartPage />
-			},
-			{
-				path: '/login',
-				element: <LoginPage />
-			},
-			{
-				path: '/registrate',
-				element: <RegistratePage />
-			},
-			{
-				path: '/private',
-				element: <PrivatePage />
-			},
-			{
-				path: '/article',
-				element: <ArticleDetailedPage />
-			}
-		]
-	}])
+    const queryClient = new QueryClient({
+        defaultOptions: {
+            queries: {
+                refetchOnWindowFocus: false
+            },
+        },
+    });
 
-	return (
-		<HelmetProvider>
-			<QueryClientProvider client={queryClient}>
-				<AuthProvider>
-					<LanguageProvider>
-						<ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
-							<RouterProvider router={router} />
-						</ThemeProvider>
-					</LanguageProvider>
-				</AuthProvider>
-			</QueryClientProvider>
-		</HelmetProvider>
-	)
-}
+    return (
+        <HelmetProvider>
+            <QueryClientProvider client={queryClient}>
+                <AuthProvider>
+                    <LanguageProvider>
+                        <ThemeProvider
+                            defaultTheme="light"
+                            storageKey="vite-ui-theme"
+                        >
+                            <RouterProvider router={appRouter} />
+                        </ThemeProvider>
+                    </LanguageProvider>
+                </AuthProvider>
+            </QueryClientProvider>
+        </HelmetProvider>
+    );
+};
 
-export default App
+export default App;

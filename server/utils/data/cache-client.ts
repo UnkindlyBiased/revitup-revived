@@ -14,9 +14,9 @@ class CacheClient {
         this.client.connect()
     }
     async getCache<T>(key: string): Promise<T | undefined> {
-        const cache = await this.client.get(key) ?? 'undefined'
+        const cache = await this.client.get(key)
 
-        return JSON.parse(cache) as T
+        if (cache) return JSON.parse(cache) as T
     }
     async setCache(key: string, value: unknown, options?: SetOptions): Promise<void> {
         await this.client.set(key, JSON.stringify(value), options)

@@ -1,11 +1,7 @@
-import RequireAuth from "../hoc/require-auth"
+import RequireAuth from "../hoc/require-auth";
 
 const PrivatePage = () => {
-    return (
-        <RequireAuth>
-            should be accessed with authorized user
-        </RequireAuth>
-    )
-}
+    return <RequireAuth>should be accessed with authorized user</RequireAuth>;
+};
 
-export default PrivatePage
+export default PrivatePage;
