@@ -1,9 +1,9 @@
 import { Response, NextFunction, Request } from "express";
 
 import { AuthService } from "./auth.service";
-import { RequestWithBody } from "../../utils/types/typed-requests";
+import { RequestWithBody } from "../../../utils/types/typed-requests";
 import { UserCreateDto } from "../user/dto/user.create.dto";
-import { CookieHelper } from "../../utils/helper/cookie.helper";
+import { CookieHelper } from "../../../utils/helpers/cookie.helper";
 import { UserLoginDto } from "./dto/user.login.dto";
 
 class AuthController {

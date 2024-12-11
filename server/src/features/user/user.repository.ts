@@ -1,10 +1,10 @@
 import { Repository } from "typeorm";
 
 import { UserEntity } from "./user.entity";
-import { AppDataSource } from "../../utils/data/app.data-source";
+import { AppDataSource } from "../../../utils/data/app.data-source";
 import { UserCreateDto } from "./dto/user.create.dto";
-import { PartialKeys } from "../../utils/types/partial-keys";
-import { ApiError } from "../../utils/error/api.error";
+import { PartialKeys } from "../../../utils/types/partial-keys";
+import { ApiError } from "../../../utils/error/api.error";
 
 export class UserRepository {
     private userRepo: Repository<UserEntity> = AppDataSource.getRepository(UserEntity)

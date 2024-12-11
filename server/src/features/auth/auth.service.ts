@@ -2,9 +2,9 @@ import { compare, hash } from "bcrypt";
 
 import { UserCreateDto } from "../user/dto/user.create.dto";
 import { UserRepository } from "../user/user.repository";
-import { ApiError } from "../../utils/error/api.error";
+import { ApiError } from "../../../utils/error/api.error";
 import { UserPayloadDto } from "./dto/user.payload.dto";
-import { TokenHelper } from "../../utils/helper/token.helper";
+import { TokenHelper } from "../../../utils/helpers/token.helper";
 import { UserTokenPayloadDto } from "./dto/user.token-payload.dto";
 import { UserLoginDto } from "./dto/user.login.dto";
 import { AuthHelper as auth } from "./auth.helper";

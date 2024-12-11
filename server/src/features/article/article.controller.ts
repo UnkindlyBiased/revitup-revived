@@ -1,9 +1,9 @@
 import { NextFunction, Request, Response } from "express";
 
 import { ArticleService } from "./article.service";
-import { RequestWithBody, RequestWithParams } from "../../utils/types/typed-requests";
+import { RequestWithBody, RequestWithParams } from "../../../utils/types/typed-requests";
 import { ArticleCreateDto } from "./dto/article-create.dto";
-import { HttpErrorCodes } from "../../utils/enum/http-error-codes.enum";
+import { HttpErrorCodes } from "../../../utils/enums/http-error-codes.enum";
 
 class ArticleController {
     constructor(

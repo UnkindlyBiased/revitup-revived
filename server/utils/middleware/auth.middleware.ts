@@ -1,9 +1,9 @@
 import { Request, Response, NextFunction } from "express";
 
 import { ApiError } from "../error/api.error";
-import { TokenHelper } from "../helper/token.helper";
+import { TokenHelper } from "../helpers/token.helper";
 
-export function authMiddleware(req: Request, res: Response, next: NextFunction) {
+export const authMiddleware = (req: Request, _: Response, next: NextFunction) => {
     try {
         const authorizationHeader = req.headers.authorization
         if (!authorizationHeader) {

@@ -1,9 +1,9 @@
 import { Repository } from "typeorm";
 
 import { ArticleEntity } from "./article.entity";
-import { AppDataSource } from "../../utils/data/app.data-source";
-import { ApiError } from "../../utils/error/api.error";
-import { PartialKeys } from "../../utils/types/partial-keys";
+import { AppDataSource } from "../../../utils/data/app.data-source";
+import { ApiError } from "../../../utils/error/api.error";
+import { PartialKeys } from "../../../utils/types/partial-keys";
 import { ArticleCreateDto } from "./dto/article-create.dto";
 
 export class ArticleRepository {

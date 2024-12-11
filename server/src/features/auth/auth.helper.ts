@@ -1,6 +1,6 @@
 import { plainToInstance } from "class-transformer"
 
-import { TokenHelper } from "../../utils/helper/token.helper"
+import { TokenHelper } from "../../../utils/helpers/token.helper"
 import { UserEntity } from "../user/user.entity"
 import { UserPayloadDto } from "./dto/user.payload.dto"
 import { UserTokenPayloadDto } from "./dto/user.token-payload.dto"

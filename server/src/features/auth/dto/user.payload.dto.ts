@@ -1,6 +1,6 @@
 import { Expose } from "class-transformer";
 
-import { UserRoles } from "../../../utils/enum/user-roles.enum";
+import { UserRoles } from "../../../../utils/enums/user-roles.enum";
 
 export class UserPayloadDto {
     @Expose()

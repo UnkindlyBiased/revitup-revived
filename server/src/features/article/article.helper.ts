@@ -1,4 +1,4 @@
-import { REMOVABLE_SYMBOLS } from "../../utils/constants/string.constants";
+import { REMOVABLE_SYMBOLS } from "../../../utils/constants/string.constants";
 
 export class ArticleHelper {
     static createArticleLink(articleTitle: string) {

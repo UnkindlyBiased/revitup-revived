@@ -5,7 +5,7 @@ import { ArticleShortDto } from "./dto/article-short.dto";
 import { ArticleEntity } from "./article.entity";
 import { ArticleCreateDto } from "./dto/article-create.dto";
 import { ArticleHelper } from "./article.helper";
-import CacheClient from "../../utils/data/cache-client";
+import CacheClient from "../../../utils/data/cache-client";
 
 export class ArticleService {
     constructor(

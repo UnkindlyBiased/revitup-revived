@@ -1,7 +1,7 @@
 import { instanceToPlain } from "class-transformer";
 import { sign, verify } from "jsonwebtoken";
 
-import { UserPayloadDto } from "../../src/auth/dto/user.payload.dto";
+import { UserPayloadDto } from "../../src/features/auth/dto/user.payload.dto";
 
 export class TokenHelper {
     static generateAccessToken(payload: UserPayloadDto): string {

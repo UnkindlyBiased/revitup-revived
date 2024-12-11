@@ -1,6 +1,6 @@
 import { RequestHandler } from "express";
 
-import { UserRoles } from "../enum/user-roles.enum";
+import { UserRoles } from "../enums/user-roles.enum";
 import { ApiError } from "../error/api.error";
 
 export function roleMiddleware(...roles: UserRoles[]): RequestHandler {

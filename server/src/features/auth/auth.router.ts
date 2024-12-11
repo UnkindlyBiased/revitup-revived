@@ -1,7 +1,7 @@
 import { Router } from "express";
 
 import AuthController from "./auth.controller";
-import { validationMiddleware } from "../../utils/middleware/validation.middleware";
+import { validationMiddleware } from "../../../utils/middleware/validation.middleware";
 import { UserCreateDto } from "../user/dto/user.create.dto";
 import { UserLoginDto } from "./dto/user.login.dto";
 
