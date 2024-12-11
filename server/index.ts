@@ -22,7 +22,7 @@ app.use(cors({
 
 app.use(MainRouter)
 
-app.use(() => errorMiddleware)
+app.use(errorMiddleware)
 
 async function start() {
     try {

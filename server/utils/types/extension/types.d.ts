@@ -1,4 +1,4 @@
-import { UserPayloadDto } from "../../../src/auth/dto/user.payload.dto";
+import { UserPayloadDto } from "../../../src/features/auth/dto/user.payload.dto";
 
 declare module 'express-serve-static-core' {
     export interface Request {

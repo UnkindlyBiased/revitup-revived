@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
 
 import useAuthStore from "../stores/auth.store"
-import Loading from '../components/common/loading'
+import Loading from '../components/common/indicators/loading'
 
 const RequireAuth = ({ children }: { children: React.ReactNode }) => {
     const {

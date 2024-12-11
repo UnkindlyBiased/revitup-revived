@@ -1,7 +1,7 @@
 import { useShallow } from "zustand/react/shallow"
 
 import useAuthStore from "../stores/auth.store"
-import Loading from "../components/common/loading"
+import Loading from "../components/common/indicators/loading"
 import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 

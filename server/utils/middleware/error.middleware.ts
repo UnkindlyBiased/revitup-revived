@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 
 import { ApiError } from "../error/api.error";
-import { HttpErrorCodes } from "../enum/http-error-codes.enum";
+import { HttpErrorCodes } from "../enums/http-error-codes.enum";
 
 /**
  * Middleware for outputting the incoming error

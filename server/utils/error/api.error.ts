@@ -1,4 +1,4 @@
-import { HttpErrorCodes } from "../enum/http-error-codes.enum"
+import { HttpErrorCodes } from "../enums/http-error-codes.enum"
 
 /**
  * Extended error class, including error code and static errors for any cases
