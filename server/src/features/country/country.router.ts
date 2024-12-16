@@ -7,6 +7,7 @@ import { UserRoles } from '../../../utils/enums/user-roles.enum';
 import { validationMiddleware } from '../../../utils/middleware/validation.middleware';
 import { CountryCreateDto } from './dto/country-create.dto';
 import { CountryUpdateDto } from './dto/country-update.dto';
+import { multerMiddleware } from '../../../utils/middleware/multer.middleware';
 
 export const CountryRouter = Router()
 
@@ -16,6 +17,7 @@ CountryRouter.post(
     '/',
     authMiddleware,
     roleMiddleware(UserRoles.CREATOR),
+    multerMiddleware.single('flagImg'),
     validationMiddleware(CountryCreateDto),
     CountryController.create
 )
@@ -23,6 +25,7 @@ CountryRouter.put(
     '/',
     authMiddleware,
     roleMiddleware(UserRoles.CREATOR),
+    multerMiddleware.single('flagImg'),
     validationMiddleware(CountryUpdateDto),
     CountryController.update
 )

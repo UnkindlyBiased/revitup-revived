@@ -4,6 +4,8 @@ import { CountryEntity } from './country.entity';
 import { AppDataSource } from '../../../utils/data/app.data-source';
 import { CountryCreateDto } from './dto/country-create.dto';
 import { ApiError } from '../../../utils/error/api.error';
+import { PartialKeys } from '../../../utils/types/partial-keys';
+import { CountryUpdateDto } from './dto/country-update.dto';
 
 export class CountryRepository {
     constructor(
@@ -26,26 +28,13 @@ export class CountryRepository {
         return entity
     }
     async create(input: CountryCreateDto): Promise<void> {
-        const exists = await this.repo.existsBy([
-            { code: ILike(input.name) },
-            { name: ILike(input.name) }
-        ])
-        if (exists) {
-            throw ApiError.Conflict('This country already exists')
-        }
-
         const entity = this.repo.create(input)
         await this.repo.insert(entity)
     }
-    async update(id: string, input: CountryCreateDto) {
-        const exists = await this.repo.existsBy({ id })
-        if (!exists) {
-            throw ApiError.NotFound('Such country was not found for updating')
-        }
-
+    async update(id: string, input: CountryCreateDto): Promise<void> {
         await this.repo.update({ id }, input)
     }
-    async delete(code: string): Promise<void> {
+    async delete(code: string): Promise<string> {
         const entity = await this.repo.findOneBy({
             code: ILike(code)
         })
@@ -53,6 +42,10 @@ export class CountryRepository {
             throw ApiError.NotFound('Such country does not exist')
         }
 
-        await this.repo.remove(entity)        
+        await this.repo.remove(entity)
+        return entity.flagLink
+    }
+    async existsByCriterias(input: PartialKeys<CountryUpdateDto> | PartialKeys<CountryUpdateDto>[]): Promise<boolean> {
+        return await this.repo.existsBy(input)
     }
 }

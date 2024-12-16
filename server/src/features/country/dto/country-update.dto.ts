@@ -6,4 +6,6 @@ export class CountryUpdateDto extends CountryCreateDto {
     @IsString()
     @IsUUID()
     id: string
+
+    existImgLink?: string
 }

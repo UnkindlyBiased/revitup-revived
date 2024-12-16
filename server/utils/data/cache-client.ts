@@ -11,7 +11,7 @@ class CacheClient {
     }
 
     async connect(): Promise<void> {
-        this.client.connect()
+        await this.client.connect()
     }
     async getCache<T>(key: string): Promise<T | undefined> {
         const cache = await this.client.get(key)

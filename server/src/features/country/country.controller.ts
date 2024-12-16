@@ -28,7 +28,7 @@ class CountryController {
     }
     create = async (req: RequestWithBody<CountryCreateDto>, res: Response, next: NextFunction) => {
         try {
-            await this.service.create(req.body)
+            await this.service.create(req.body, req.file)
             return res.send({ message: 'Country was added successfully' })
         } catch(e) {
             next(e)
@@ -36,7 +36,7 @@ class CountryController {
     }
     update = async (req: RequestWithBody<CountryUpdateDto>, res: Response, next: NextFunction) => {
         try {
-            await this.service.update(req.body)
+            await this.service.update(req.body, req.file)
             return res.send({ message: "Country's data was successfully updated" })
         } catch(e) {
             next(e)
