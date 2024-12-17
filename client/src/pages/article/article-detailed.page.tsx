@@ -32,7 +32,7 @@ const imageSrc =
     "https://cdn.racingnews365.com/2024/Norris/_1092x683_crop_center-center_85_none/Norris-FP1-Brazil.jpeg?v=1730475181";
 
 const ArticleDetailedPage = () => {
-    const { link } = useParams();
+    const { link } = useParams() as { link: string };
     const { data: article, isLoading } = useGetArticleByLink(link!);
 
     if (!article || isLoading) {
@@ -52,16 +52,16 @@ const ArticleDetailedPage = () => {
                             <CategoryDisplay />
                             <DateTimeStamp
                                 className="hidden lg:block"
-                                date={new Date()}
+                                date={new Date(article.publishingDate)}
                             />
                         </div>
                         <ArticleTitleSpan>{article.title}</ArticleTitleSpan>
                     </div>
                     <div className="flex items-center justify-between pt-1 lg:w-fit">
-                        <AuthorBox />
+                        <AuthorBox author={article.author} />
                         <DateTimeStamp
                             className="lg:hidden"
-                            date={new Date()}
+                            date={new Date(article.publishingDate)}
                         />
                     </div>
                     <div className="justify-center md:block">

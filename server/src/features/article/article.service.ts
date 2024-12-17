@@ -26,7 +26,7 @@ export class ArticleService {
         if (cachedArticle) return cachedArticle
 
         const article = await this.articleRepo.getArticleByCondition({ link })
-        this.cacheClient.setCache(`articles:${link}`, article, {
+        await this.cacheClient.setCache(`articles:${link}`, article, {
             EX: 30
         })
 

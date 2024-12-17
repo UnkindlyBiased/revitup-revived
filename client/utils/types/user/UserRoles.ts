@@ -1,1 +1,1 @@
-export type UserRoles = 'default' | 'admin'
+export type UserRoles = 'default' | 'editor' | 'admin' | 'creator'

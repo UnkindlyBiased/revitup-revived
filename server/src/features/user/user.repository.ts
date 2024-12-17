@@ -7,25 +7,28 @@ import { PartialKeys } from "../../../utils/types/partial-keys";
 import { ApiError } from "../../../utils/error/api.error";
 
 export class UserRepository {
-    private userRepo: Repository<UserEntity> = AppDataSource.getRepository(UserEntity)
+    private userRepo: Repository<UserEntity> =
+        AppDataSource.getRepository(UserEntity);
 
     async getUsers(): Promise<UserEntity[]> {
-        return this.userRepo.find()
+        return this.userRepo.find();
     }
-    async getUserByCondition(condition: PartialKeys<UserEntity>): Promise<UserEntity> {
-        const user = await this.userRepo.findOneBy(condition)
+    async getUserByCondition(
+        condition: PartialKeys<UserEntity>,
+    ): Promise<UserEntity> {
+        const user = await this.userRepo.findOneBy(condition);
         if (!user) {
-            throw ApiError.NotFound('User was not found by such condition')
+            throw ApiError.NotFound("User was not found by such condition");
         }
 
-        return user
+        return user;
     }
     async createUser(input: UserCreateDto) {
-        const entity = this.userRepo.create(input)
+        const entity = this.userRepo.create(input);
 
-        await this.userRepo.insert(entity)
+        await this.userRepo.save(entity);
     }
     async exists(entityPartial: PartialKeys<UserEntity>): Promise<boolean> {
-        return this.userRepo.existsBy(entityPartial)
+        return this.userRepo.existsBy(entityPartial);
     }
 }

@@ -4,7 +4,8 @@ type UserAuthResponse = {
     id: number
     username: string
     emailAddress: string
-    role: UserRoles
+    nickname: string
+    roles: UserRoles[]
 }
 
 export default UserAuthResponse

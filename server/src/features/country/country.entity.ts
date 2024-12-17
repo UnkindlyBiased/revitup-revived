@@ -1,25 +1,29 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Expose } from "class-transformer";
+import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
-@Entity('Countries')
+@Entity("Countries")
 export class CountryEntity {
-    @PrimaryGeneratedColumn('uuid')
-    id: string
+    @PrimaryGeneratedColumn("uuid")
+    id: string;
 
     @Column({
-        name: 'country_name',
-        length: 75
+        name: "country_name",
+        length: 75,
     })
-    name: string
+    @Expose()
+    name: string;
 
     @Column({
-        name: 'country_code',
-        length: 5
+        name: "country_code",
+        length: 5,
     })
-    code: string
+    @Expose()
+    code: string;
 
     @Column({
-        name: 'country_flag_url',
-        nullable: true
+        name: "country_flag_url",
+        nullable: true,
     })
-    flagLink: string
+    @Expose()
+    flagLink: string;
 }

@@ -1,4 +1,4 @@
-import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 import { UserEntity } from "../user/user.entity";
 
@@ -30,6 +30,12 @@ export class ArticleEntity {
         name: 'article_link'
     })
     link: string
+
+    @CreateDateColumn({
+        name: 'article_published_at',
+        type: 'timestamp with time zone'
+    })
+    publishingDate: string
 
     @ManyToOne(() => UserEntity)
     @JoinColumn()

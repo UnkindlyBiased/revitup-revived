@@ -7,6 +7,7 @@
             "login": "Увійти в акаунт"
         },
         "authed_actions": {
+            "your_profile": "Ваш профіль",
             "logout": {
                 "title": "Вийти",
                 "success_toast": {

@@ -1,6 +1,7 @@
 import { Expose } from "class-transformer";
 
 import { UserRoles } from "../../../../utils/enums/user-roles.enum";
+import { CountryEntity } from '../../country/country.entity';
 
 export class UserShortDto {
     @Expose()
@@ -10,5 +11,11 @@ export class UserShortDto {
     username: string;
 
     @Expose()
+    nickname: string
+
+    @Expose()
     roles: UserRoles;
+
+    @Expose()
+    country: CountryEntity
 };

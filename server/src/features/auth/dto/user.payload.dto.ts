@@ -13,5 +13,8 @@ export class UserPayloadDto {
     emailAddress: string
 
     @Expose()
+    nickname: string
+
+    @Expose()
     roles: UserRoles[]
 }
